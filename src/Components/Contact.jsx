@@ -1,9 +1,21 @@
-import React from 'react'
+import React from 'react';
+import { useSpring, animated } from 'react-spring';
 
 const Contact = () => {
-  return (
-    <div>Contact</div>
-  )
-}
+  const fadeIn = useSpring({
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+    config: { duration: 1000 },
+  });
 
-export default Contact
+  return (
+    <animated.div style={fadeIn} className="bg-gray-100 h-screen flex items-center justify-center">
+      <div className="text-center">
+        <h1 className="text-4xl font-bold text-blue-500 mb-4">Hubungi Saya</h1>
+        <p className="text-gray-700">Ini adalah halaman contact dengan animasi.</p>
+      </div>
+    </animated.div>
+  );
+};
+
+export default Contact;
